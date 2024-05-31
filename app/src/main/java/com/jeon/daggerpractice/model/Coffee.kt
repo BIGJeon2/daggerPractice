@@ -10,4 +10,8 @@ class Coffee(context: Context, override val beverageInfo: BeverageInfo) : Bevera
     override fun showInfo() {
         Toast.makeText(mContext, "This is Coffee", Toast.LENGTH_SHORT).show()
     }
+
+    override fun showCompany() {
+        Toast.makeText(mContext, "This is Compose beverage", Toast.LENGTH_SHORT).show()
+    }
 }
