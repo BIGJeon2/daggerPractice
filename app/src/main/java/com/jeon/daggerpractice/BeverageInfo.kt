@@ -1,6 +1,8 @@
-package com.jeon.daggerpractice.module
+package com.jeon.daggerpractice
 
-data class Beverage(
+import com.jeon.daggerpractice.module.Ingredient
+
+data class BeverageInfo(
     val name: String,
     val ingredient: List<Ingredient>,
     val price: Int,

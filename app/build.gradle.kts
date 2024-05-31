@@ -67,8 +67,8 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
-    val daggerVersion = "2.51.1"
-    implementation("com.google.dagger:dagger:$daggerVersion")
-    annotationProcessor("com.google.dagger:dagger-compiler:$daggerVersion")
+    val hiltVersion = "2.44"
+    implementation("com.google.dagger:hilt-android:$hiltVersion")
+    annotationProcessor("com.google.dagger:hilt-compiler:$hiltVersion")
 
 }
