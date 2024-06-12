@@ -1,17 +1,18 @@
 package com.jeon.daggerpractice.model
 
 import com.jeon.daggerpractice.api.Cafe
-import com.jeon.daggerpractice.impl.StarCoffee
+import javax.inject.Inject
 
 class CafeInfo {
-    val cafeInfo : Cafe = StarCoffee()
+    @Inject
+    lateinit var companyInfo : Cafe
 
     fun showCompanyInfo(){
-        cafeInfo.showCompanyInf()
+        companyInfo.showCompanyInf()
     }
 
     fun showMenu(){
-        cafeInfo.showMenu()
+        companyInfo.showMenu()
     }
 
 }

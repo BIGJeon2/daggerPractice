@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Face
-import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
@@ -19,7 +18,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
+import com.jeon.daggerpractice.model.CafeInfo
+import com.jeon.daggerpractice.obj.CompoCompany
 import com.jeon.daggerpractice.ui.theme.DaggerPracticeTheme
 
 class MainActivity : ComponentActivity() {
@@ -67,21 +67,15 @@ private fun myTopBar(){
                 imageVector = Icons.Default.Face,
                 contentDescription = "Icon"
             )
-        })
-}
-
-@Composable
-private fun myBottomBar(){
-    BottomAppBar(
-        modifier = Modifier.padding(20.dp)
-    ) {
-
-    }
+        }
+    )
 }
 
 @Composable
 private fun innerContent(){
-    Text(text = "first page")
+    val cafeInfo = CafeInfo()
+    cafeInfo.companyInfo = CompoCompany.provideCompanyInfo()
+    cafeInfo.showCompanyInfo()
 }
 
 @Preview(showBackground = true)
