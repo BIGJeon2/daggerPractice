@@ -18,21 +18,38 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
+import com.jeon.daggerpractice.api.Cafe
+import com.jeon.daggerpractice.impl.CompoCoffee
+import com.jeon.daggerpractice.impl.StarCoffee
 import com.jeon.daggerpractice.model.CafeInfo
+import com.jeon.daggerpractice.module.CompoCoffeeQualifier
+import com.jeon.daggerpractice.module.StarCoffeeQualifier
 import com.jeon.daggerpractice.obj.CompoCompany
 import com.jeon.daggerpractice.ui.theme.DaggerPracticeTheme
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
+import javax.inject.Qualifier
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+    @CompoCoffeeQualifier
+    @Inject
+    lateinit var compoCafe: Cafe
+    @StarCoffeeQualifier
+    @Inject
+    lateinit var starCafe: Cafe
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
             DaggerPracticeTheme {
-                CustomTopBar{
+                CustomTopBar {
                     innerContent()
                 }
             }
         }
+        starCafe.showCompanyInfo()
+        compoCafe.showCompanyInfo()
     }
 }
 
@@ -73,9 +90,7 @@ private fun myTopBar(){
 
 @Composable
 private fun innerContent(){
-    val cafeInfo = CafeInfo()
-    cafeInfo.companyInfo = CompoCompany.provideCompanyInfo()
-    cafeInfo.showCompanyInfo()
+
 }
 
 @Preview(showBackground = true)

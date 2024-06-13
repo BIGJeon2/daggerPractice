@@ -2,10 +2,11 @@ package com.jeon.daggerpractice.impl
 
 import android.util.Log
 import com.jeon.daggerpractice.api.Cafe
+import javax.inject.Inject
 
-class StarCoffee : Cafe {
+class StarCoffee @Inject constructor() : Cafe {
 
-    override fun showCompanyInf() {
+    override fun showCompanyInfo() {
         Log.d("StarCoffee", "CompanyInfo : 이곳은 별다방 카페 입니다.")
     }
 
